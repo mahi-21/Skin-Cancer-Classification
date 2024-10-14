@@ -126,7 +126,7 @@ len(MEL), len(SCC), len(BCC), len(NV), len(AK), len(VASC), len(DF), len(BKL)
 # Hair removing Function
 """
 
-def apply_dullrazor(image_path):
+def hair_removal(image_path):
     # Read the image
     img = cv2.imread(image_path)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -149,7 +149,7 @@ def apply_dullrazor(image_path):
 
     return img, dst
 
-original, processed = apply_dullrazor(MEL[100])
+original, processed = hair_removal(MEL[100])
 
 plt.figure(figsize=(15, 6))
 
@@ -176,7 +176,7 @@ for i, filename in enumerate(img_list):
     if filename.endswith('.jpg') or filename.endswith('.png'):
 
         # Apply the function
-        original, processed = apply_dullrazor(filename)
+        original, processed = hair_removal(filename)
         cv2.imwrite("/kaggle/working/preproessed/img_"+str(i)+".png", processed)
 
         # Append to the lists
@@ -220,7 +220,7 @@ for i, filename in enumerate(MEL):
     if filename.endswith('.jpg') or filename.endswith('.png'):
 
         # Apply the function
-        original, processed = apply_dullrazor(filename)
+        original, processed = hair_removal(filename)
         processed = cv2.resize(processed, (512,512))
         cv2.imwrite("C:/Users/mahid/Downloads/isic-2019//DF/MEL/img_"+str(i)+".png", processed)
 print("Time Taken: %f" % (time.time() - start))
@@ -230,7 +230,7 @@ for i, filename in enumerate(SCC):
     if filename.endswith('.jpg') or filename.endswith('.png'):
 
         # Apply the function
-        original, processed = apply_dullrazor(filename)
+        original, processed = hair_removal(filename)
         processed = cv2.resize(processed, (512,512))
         cv2.imwrite("C:/Users/mahid/Downloads/isic-2019/DF/SCC/img_"+str(i)+".png", processed)
 print("Time Taken: %f" % (time.time() - start))
@@ -240,7 +240,7 @@ for i, filename in enumerate(BCC):
     if filename.endswith('.jpg') or filename.endswith('.png'):
 
         # Apply the function
-        original, processed = apply_dullrazor(filename)
+        original, processed = hair_removal(filename)
         processed = cv2.resize(processed, (512,512))
         cv2.imwrite("C:/Users/mahid/Downloads/isic-2019//DF/BCC/img_"+str(i)+".png", processed)
 
@@ -252,7 +252,7 @@ for i, filename in enumerate(NV):
     if filename.endswith('.jpg') or filename.endswith('.png'):
 
         # Apply the function
-        original, processed = apply_dullrazor(filename)
+        original, processed = hair_removal(filename)
         processed = cv2.resize(processed, (512,512))
         cv2.imwrite("C:/Users/mahid/Downloads/isic-2019/DF/NV/img_"+str(i)+".png", processed)
 print("Time Taken: %f" % (time.time() - start))
@@ -262,7 +262,7 @@ for i, filename in enumerate(AK):
     if filename.endswith('.jpg') or filename.endswith('.png'):
 
         # Apply the function
-        original, processed = apply_dullrazor(filename)
+        original, processed = hair_removal(filename)
         processed = cv2.resize(processed, (512,512))
         cv2.imwrite("C:/Users/mahid/Downloads/isic-2019/DF/AK/img_"+str(i)+".png", processed)
 print("Time Taken: %f" % (time.time() - start))
@@ -272,7 +272,7 @@ for i, filename in enumerate(VASC):
     if filename.endswith('.jpg') or filename.endswith('.png'):
 
         # Apply the function
-        original, processed = apply_dullrazor(filename)
+        original, processed = hair_removal(filename)
         processed = cv2.resize(processed, (512,512))
         cv2.imwrite("C:/Users/mahid/Downloads/isic-2019/DF/VASC/img_"+str(i)+".png", processed)
 
@@ -283,7 +283,7 @@ for i, filename in enumerate(DF):
     if filename.endswith('.jpg') or filename.endswith('.png'):
 
         # Apply the function
-        original, processed = apply_dullrazor(filename)
+        original, processed = hair_removal(filename)
         processed = cv2.resize(processed, (512,512))
         cv2.imwrite("C:/Users/mahid/Downloads/isic-2019/DF/DF/img_"+str(i)+".png", processed)
 print("Time Taken: %f" % (time.time() - start))
@@ -293,7 +293,7 @@ for i, filename in enumerate(BKL):
     if filename.endswith('.jpg') or filename.endswith('.png'):
 
         # Apply the function
-        original, processed = apply_dullrazor(filename)
+        original, processed = hair_removal(filename)
         processed = cv2.resize(processed, (512,512))
         cv2.imwrite("C:/Users/mahid/Downloads/isic-2019/DF/BKL/img_"+str(i)+".png", processed)
 
